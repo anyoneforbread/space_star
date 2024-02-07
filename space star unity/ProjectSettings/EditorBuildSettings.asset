@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Solar System.unity
     guid: ba222a76fee187e46af7298bafacfcdb
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: d5c888ff42b1b884fb24e1a126e014be
   m_configObjects: {}
