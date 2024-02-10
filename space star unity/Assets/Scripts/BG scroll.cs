@@ -5,12 +5,12 @@ using UnityEngine;
 public class BGscroll : MonoBehaviour
 {
     private float length, startpos;
-    private GameObject cam;
+    [SerializeField] private GameObject cam;
     [SerializeField] private float parallaxEffect;
 
     void Start()
     {
-        cam = GameObject.Find("rocket camera");
+        //cam = GameObject.Find("rocket camera");
         startpos = transform.position.y;
         length = GetComponent<SpriteRenderer>().bounds.size.y;
     }
