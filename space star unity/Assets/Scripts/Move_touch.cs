@@ -13,7 +13,6 @@ public class move_touch : MonoBehaviour
     private List<string> locName = new List<string>(new string[] { "Past", "Current", "Next 1", "Next 2", "Next 3", "Future" });
     public GameObject previousLevel;
     public GameObject nextLevel;
-    private Vector3[] distance = new Vector3[5];
     public int minLocation = 0;
     public int maxLocation = 0;
     public int currentLocation = 0;
@@ -23,13 +22,6 @@ public class move_touch : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             locations[i] = GameObject.Find(locName[i]);
-        }
-        for (int i = 0; i < 5; i++)
-        {
-            distance[i] = new Vector3(
-                locations[i+1].GetComponent<Transform>().position.x - locations[i].GetComponent<Transform>().position.x,
-                locations[i+1].GetComponent<Transform>().position.y - locations[i].GetComponent<Transform>().position.y,
-                locations[i+1].GetComponent<Transform>().position.z - locations[i].GetComponent<Transform>().position.z);
         }
     }
 
@@ -58,20 +50,62 @@ public class move_touch : MonoBehaviour
 
         if (validMovement)
         {
-            if (touch.deltaPosition.x > 0 && (currentLocation < maxLocation || maxLocation == -1))
+            if (touch.deltaPosition.x > 0)
             {
-                transform.position = new Vector3(
-                    transform.position.x + distance[currentLocation].x * mult,
-                    transform.position.y + distance[currentLocation].y * mult,
-                    transform.position.z + distance[currentLocation].z * mult);
+                if (currentLocation < maxLocation)
+                {
+                    if (currentLocation == 0 && nextLevel.GetComponent<move_touch>().currentLocation == 0)
+                    {
+                        return;
+                    }
+                    moveUp();
+                } else if (currentLocation == 0 && nextLevel.GetComponent<move_touch>().currentLocation == 1)
+                {
+                    moveUp();
+                }
             }
-            else if (touch.deltaPosition.x < 0 && (currentLocation > minLocation || minLocation == -1))
+            else if (touch.deltaPosition.x < 0)
             {
-                transform.position = new Vector3(
-                    transform.position.x - distance[currentLocation-1].x * mult,
-                    transform.position.y - distance[currentLocation-1].y * mult,
-                    transform.position.z - distance[currentLocation-1].z * mult);
+                if (currentLocation > minLocation)
+                {
+                    if (currentLocation == 5 && previousLevel.GetComponent<move_touch>().currentLocation == 5)
+                    {
+                        return;
+                    }
+                    moveDown();
+                } else if (currentLocation == 5 && previousLevel.GetComponent<move_touch>().currentLocation == 4)
+                {
+                    moveDown();
+                }
             }
         }
+    }
+
+    void moveUp()
+    {
+        if (transform.position.x >= locations[currentLocation + 1].GetComponent<Transform>().position.x)
+        {
+            currentLocation = currentLocation + 1;
+            if (currentLocation == 5)
+            {
+                return;
+            }
+        }
+        var step = mult * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, locations[currentLocation + 1].GetComponent<Transform>().position, step);
+    }
+
+    void moveDown()
+    {
+        if (transform.position.x <= locations[currentLocation - 1].GetComponent<Transform>().position.x)
+        {
+            currentLocation = currentLocation - 1;
+            if (currentLocation == 0)
+            {
+                return;
+            }
+        }
+        var step = mult * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, locations[currentLocation - 1].GetComponent<Transform>().position, step);
     }
 }
