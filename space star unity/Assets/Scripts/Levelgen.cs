@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public class PlanetWeight
+public class PlanetStat
 {
     public GameObject PlanetPrefab;
     [Range(0f, 100f)] public float Chance = 100f;
@@ -15,15 +16,18 @@ public class PlanetWeight
 public class Levelgen : MonoBehaviour
 {
     [SerializeField] private int TotPlanetNo;
-    [SerializeField] private PlanetWeight[] Planets;
+    [SerializeField] private PlanetStat[] Planets;
     [SerializeField] private float minY;  //dist btw planets
     [SerializeField] private float maxY;
     [SerializeField] private float StartY;
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
+    public List<Vector3> locations = new List<Vector3>();
 
     private double accumulatedWeight;
     private System.Random rand = new System.Random();
+
+    planetLineMaker lineMaker;
 
     void Awake()
     {
@@ -37,10 +41,19 @@ public class Levelgen : MonoBehaviour
             float ranY = Random.Range(minY, maxY);
             float ranX = Random.Range(minX, maxX);
             Vector3 randposition = new Vector3(ranX, StartY, transform.position.z);
-            PlanetWeight randPlanet = Planets[GetRandPlanetIndex()];
+            PlanetStat randPlanet = Planets[GetRandPlanetIndex()];
             Instantiate(randPlanet.PlanetPrefab, randposition, Quaternion.identity);
+            locations.Add(new Vector3(ranX, StartY, 1));  //add to planet list, z behind the planets
             StartY += ranY;
+
+            
         }
+
+        Vector3[] locationsArray = locations.ToArray();
+
+        lineMaker = GameObject.FindGameObjectWithTag("Line").GetComponent<planetLineMaker>();
+        lineMaker.draw(TotPlanetNo, locationsArray);
+
     }
 
 
@@ -58,7 +71,7 @@ public class Levelgen : MonoBehaviour
     private void CalcWeight()
     {
         accumulatedWeight = 0f;
-        foreach (PlanetWeight planet in Planets)
+        foreach (PlanetStat planet in Planets)
         {
             accumulatedWeight += planet.Chance;
             planet._weight = accumulatedWeight;
