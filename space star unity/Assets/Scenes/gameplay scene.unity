@@ -1501,7 +1501,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -18}
+  m_LocalPosition: {x: -0.00000011920929, y: 3, z: -19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2077,7 +2077,7 @@ Transform:
   m_GameObject: {fileID: 1575982086}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2172,8 +2172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a49af58090642dda491763b06fdd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 999
+  movementTime: 0.8
   planetColliderHeight: -10
+  coolDownTime: 1
 --- !u!1 &1605501638 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3211638221932294493, guid: 6184f0a633e1e4abc9470ab89e1f4411, type: 3}
@@ -2841,7 +2842,7 @@ Transform:
   m_GameObject: {fileID: 1920893305}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -18}
+  m_LocalPosition: {x: -0.00000011920929, y: 3, z: -19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3040,7 +3041,7 @@ MonoBehaviour:
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 8
-  m_DeadZoneWidth: 0.65
+  m_DeadZoneWidth: 0.7
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
