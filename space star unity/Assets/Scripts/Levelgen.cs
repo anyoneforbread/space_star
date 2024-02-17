@@ -22,7 +22,7 @@ public class Levelgen : MonoBehaviour
     [SerializeField] private float StartY;
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
-    public List<Vector3> locations = new List<Vector3>();
+    public List<Vector3> locations = new List<Vector3>(); // first location is player origin
 
     private double accumulatedWeight;
     private System.Random rand = new System.Random();
@@ -36,6 +36,9 @@ public class Levelgen : MonoBehaviour
 
     void Start()
     {
+        Vector3 playerLoc = GameObject.FindGameObjectWithTag("Player").transform.position;
+        locations.Add(new Vector3(playerLoc.x, playerLoc.y, 0));
+
         for (int i = 0; i < TotPlanetNo; i++)
         {
             float ranY = Random.Range(minY, maxY);
@@ -43,7 +46,7 @@ public class Levelgen : MonoBehaviour
             Vector3 randposition = new Vector3(ranX, StartY, transform.position.z);
             PlanetStat randPlanet = Planets[GetRandPlanetIndex()];
             Instantiate(randPlanet.PlanetPrefab, randposition, Quaternion.identity);
-            locations.Add(new Vector3(ranX, StartY, 1));  //add to planet list, z behind the planets
+            locations.Add(new Vector3(ranX, StartY, 1));  //add to planet list, z units behind the planets
             StartY += ranY;
 
             
@@ -52,7 +55,7 @@ public class Levelgen : MonoBehaviour
         Vector3[] locationsArray = locations.ToArray();
 
         lineMaker = GameObject.FindGameObjectWithTag("Line").GetComponent<planetLineMaker>();
-        lineMaker.draw(TotPlanetNo, locationsArray);
+        lineMaker.draw(TotPlanetNo + 1, locationsArray); //+1 for player location
 
     }
 

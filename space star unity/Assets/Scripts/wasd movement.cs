@@ -22,18 +22,18 @@ public class wasdmovement : MonoBehaviour
             transform.position += UnityEngine.Vector3.right * moveSpeed * Time.deltaTime;
 
         }
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.position += UnityEngine.Vector3.right * -moveSpeed * Time.deltaTime;
 
         }
 
-        else if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             transform.position += UnityEngine.Vector3.up * moveSpeed * Time.deltaTime;
 
         }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             transform.position += UnityEngine.Vector3.up * -moveSpeed * Time.deltaTime;
 

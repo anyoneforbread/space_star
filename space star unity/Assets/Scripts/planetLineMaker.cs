@@ -6,12 +6,6 @@ public class planetLineMaker : MonoBehaviour
 {
     public LineRenderer line;
 
-
-    void Start()
-    {
-        
-    }
-
     public void draw(int planetNo,Vector3[] planetLocs)
     {
         line.positionCount = planetNo;

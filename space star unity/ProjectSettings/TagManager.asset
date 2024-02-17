@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Planet
   - Line
+  - Planet Spawner
   layers:
   - Default
   - TransparentFX
