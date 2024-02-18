@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChange: 10
+  fuelChange: 10
 --- !u!1 &8178101603472589894
 GameObject:
   m_ObjectHideFlags: 0
