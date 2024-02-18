@@ -30,7 +30,7 @@ public class RocketStats : MonoBehaviour
     {
         if (amount < 0) amount += armour;
         currentHealth += amount;
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthBar.SetSlider(currentHealth);
         if (currentHealth <= 0) Die();
     }
@@ -40,7 +40,7 @@ public class RocketStats : MonoBehaviour
     {
         if (amount < 0) amount += fuelSaving;
         currentFuel += amount;
-        if (currentFuel > maxFuel) currentFuel = maxFuel;
+        currentFuel = Mathf.Clamp(currentFuel, 0, maxHealth);
         fuelBar.SetSlider(currentFuel);
         if (currentFuel <= 0) Die();
     }
