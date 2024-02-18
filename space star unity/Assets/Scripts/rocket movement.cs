@@ -7,7 +7,7 @@ public class RocketMovement : MonoBehaviour
 {
 
     Levelgen LG;
-    public float fuelPerMove = 10f;
+    public float fuelPerMove = 5f;
     public float movementTime = 0.8f;
     [SerializeField] private float planetColliderHeight;
     private int index = 1;
