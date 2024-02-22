@@ -58,6 +58,7 @@ public class RocketMovement : MonoBehaviour
             Invoke("land", movementTime);
             Debug.Log(index);
             Invoke("ResetCooldown", coolDownTime);
+            if (fuelPerMove > rocketStats.currentFuel) rocketStats.Die();
             coolDown = true;
         }
         

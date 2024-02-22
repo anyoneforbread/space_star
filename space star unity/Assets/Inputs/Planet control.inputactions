@@ -1,0 +1,34 @@
+{
+    "name": "Planet control",
+    "maps": [
+        {
+            "name": "Planet",
+            "id": "d0bcc518-7b5d-4a71-9fbd-0f0127515b7c",
+            "actions": [
+                {
+                    "name": "long tap for more info",
+                    "type": "Button",
+                    "id": "fbeaeaa0-2c55-49b7-ae08-df62531c71e6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "70c94bbf-9462-4001-ae1a-82a2ed354502",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "long tap for more info",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
