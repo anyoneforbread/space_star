@@ -12,6 +12,7 @@ public class PlanetOnClick : MonoBehaviour
     private GameObject planetPopupUITitle;
     private GameObject planetPopupUIDescription;
     private GameObject planetPopupUIImage;
+    private GameObject UIManager;
 
     [SerializeField] private Sprite sprite;
     [TextArea(2, 4)][SerializeField] private string title="";
@@ -24,7 +25,8 @@ public class PlanetOnClick : MonoBehaviour
     void Start()
     {
         canvas = GameObject.FindGameObjectWithTag("UI");
-        planetPopupUI = canvas.transform.GetChild(5).gameObject;  //need planet info to be 6th child
+        UIManager = canvas.transform.GetChild(0).gameObject;
+        planetPopupUI = canvas.transform.GetChild(6).gameObject;  //need planet info to be 7th child
 
         planetPopupUITitle = planetPopupUI.transform.GetChild(2).gameObject;
         planetPopupUIDescription = planetPopupUI.transform.GetChild(3).gameObject;
@@ -47,6 +49,7 @@ public class PlanetOnClick : MonoBehaviour
         UIImage.sprite = sprite;
 
         planetPopupUI.SetActive(true);
+        UIManager.GetComponent<UIManager>().DisableButtons();
         Debug.Log("clicked");
     }
 
