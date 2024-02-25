@@ -38,7 +38,7 @@ public class RocketMovement : MonoBehaviour
             if (index >= locations.Count)
             {
                 index = locations.Count;
-                Debug.Log("level finished");
+                Debug.Log("level finished 1");
                 return;
             }
 
@@ -58,7 +58,13 @@ public class RocketMovement : MonoBehaviour
             Invoke("land", movementTime);
             Debug.Log(index);
             Invoke("ResetCooldown", coolDownTime);
-            if (fuelPerMove > rocketStats.currentFuel) rocketStats.Die();
+            if (index >= locations.Count)
+            {
+                index = locations.Count;
+                Debug.Log("level finished 2");
+                return;
+            }
+            Invoke("NoFuelCheck", movementTime);
             coolDown = true;
         }
         
@@ -72,12 +78,18 @@ public class RocketMovement : MonoBehaviour
         Vector3[] landArr = new [] {target, currentPos};
         transform.DOPath(landArr, landTime);
 
-        Debug.Log("landed");
     }
 
     private void ResetCooldown()
     {
         coolDown = false;
+    }
+
+
+    private void NoFuelCheck()
+    {
+        //rocketStats = GetComponent<RocketStats>();
+        if (fuelPerMove > rocketStats.currentFuel) rocketStats.Die();
     }
 
 }

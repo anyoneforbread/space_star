@@ -11,6 +11,5 @@ public class ClosePanel : MonoBehaviour
     {
         planetPopupUI.SetActive(false);
         UIManager.GetComponent<UIManager>().DelayedEnable(0.2f);
-        Debug.Log("closed");
     }
 }

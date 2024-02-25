@@ -50,7 +50,6 @@ public class PlanetOnClick : MonoBehaviour
 
         planetPopupUI.SetActive(true);
         UIManager.GetComponent<UIManager>().DisableButtons();
-        Debug.Log("clicked");
     }
 
 
