@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 6655939235573443196}
   - component: {fileID: 2339465185805865794}
   - component: {fileID: 3280313589784051538}
+  - component: {fileID: 8434370172513338637}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -257,3 +258,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChange: -5
+  fuelChange: 0
+--- !u!114 &8434370172513338637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8444338166852016165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4889d35ac025e43239668cf3971303a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 092a8b153f4e94978ba2400c14751853, type: 3}
+  title: Cyan Planet
+  description: 'Dreamy sea, lush waves, flooded your ship
+
+    <color=red> Health
+    -10 </color>'

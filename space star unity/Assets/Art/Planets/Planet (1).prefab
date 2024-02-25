@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2170597449559578657}
   - component: {fileID: 5116215604946013109}
   - component: {fileID: 4464336329249921714}
+  - component: {fileID: 5379164410632358271}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -120,6 +121,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthChange: 10
   fuelChange: 10
+--- !u!114 &5379164410632358271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781390034870534093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4889d35ac025e43239668cf3971303a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 10c1c69afacd24df797b2bc9773a6049, type: 3}
+  title: Green Planet
+  description: 'A friendly planet with ample resources
+
+    <color=green>  Health
+    +10
+
+    Fuel +10 </color>'
 --- !u!1 &8178101603472589894
 GameObject:
   m_ObjectHideFlags: 0

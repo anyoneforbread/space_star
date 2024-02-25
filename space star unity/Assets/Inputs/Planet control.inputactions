@@ -6,9 +6,27 @@
             "id": "d0bcc518-7b5d-4a71-9fbd-0f0127515b7c",
             "actions": [
                 {
-                    "name": "long tap for more info",
-                    "type": "Button",
+                    "name": "TapPos",
+                    "type": "Value",
                     "id": "fbeaeaa0-2c55-49b7-ae08-df62531c71e6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Tap",
+                    "type": "Button",
+                    "id": "88bfaff1-74fe-425b-8719-9e778af45315",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "testmouse",
+                    "type": "Button",
+                    "id": "cb46c40b-9d5a-46a8-a1eb-7bcf743b3e01",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -19,11 +37,33 @@
                 {
                     "name": "",
                     "id": "70c94bbf-9462-4001-ae1a-82a2ed354502",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapPos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27f3870c-af39-4ed8-8c1c-bbd83f675f6a",
                     "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "long tap for more info",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0c58b53-91ad-4324-8f57-a09e1c11b65a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "testmouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
